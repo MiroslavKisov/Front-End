@@ -1,0 +1,12 @@
+.lecture-container {
+  display: flex;
+  flex-direction: row;
+  margin: 15px;
+  width: 1335px;
+  height: 400px;
+}
+
+.video-disabled {
+  z-index: -1;
+  position: relative;
+}

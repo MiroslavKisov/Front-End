@@ -1,0 +1,15 @@
+<div class="column">
+  <div class="card">
+    <h3 class="text-center">{{name}}</h3>
+    <p class="text-center">Creator: {{creatorName}}</p>
+    {{#if commentCount}}
+      <p class="text-center">Number of comments: {{commentCount}}</p>
+    {{else}}
+      <p class="text-center">Number of comments: 0</p>
+    {{/if}}
+    <div class="button-container">
+      <a href="#/recipe-details/:{{_id}}" class="btn btn-default">Details</a>
+    </div>
+  </div>
+</div>
+

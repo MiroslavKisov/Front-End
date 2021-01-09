@@ -1,0 +1,33 @@
+{{> header}}
+<div class="container">
+<h1 class="text-white text-center text-margin">My Profile</h1>
+    <div class="row">
+        <div class="col-md-4">
+            <h1 class="text-white">{{username}}</h1>
+            {{#if picture}}
+                <img src="{{picture}}" accept="image/jpeg, image/jpg, image/png" width="150" height="150">
+            {{else}}
+                <img src="images/default.png" width="150" height="150">
+            {{/if}}
+            <form enctype="multipart/form-data" role="form" action={{pictureEdit}} method="POST">
+                <div class="form-group">
+                    <label for="exampleInputFile" class="text-white">Profile Picture</label>
+                    <input id="profilePicture" type="file" name="profilePicture" class="form-control-file" id="exampleInputFile" required>
+                    <div class="help-block with-errors text-white">Upload photo (.jpg .png .jpeg .gif)</div>
+                </div>
+                <div class="button-container">
+                    <button type="submit" class="btn btn-primary">Upload</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-7 offset-md-1">
+            <p class="text-white">{{aboutYou}}</p>
+        </div>
+    </div>
+</div>
+<div class="button-container">
+    <a class="btn btn-primary" href={{editRoute}}>Edit</a>
+</div>
+<div class="separator">
+</div>
+{{> footer}}

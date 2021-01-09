@@ -1,0 +1,1 @@
+This is a simple system that allows the users to share cooking recipes. Type npm install to istall node packages, if they are not installed then start vs code live server and you are ready to go.

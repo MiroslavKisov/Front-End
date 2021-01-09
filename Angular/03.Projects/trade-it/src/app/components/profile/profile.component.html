@@ -1,0 +1,37 @@
+<div class="container-fluid" [hidden]='isLoading'>
+    <div class="row">
+        <div class="col-md-5">
+            <h3 class="text-center text-margin">{{user?.username}}</h3>
+            <img *ngIf="user?.picture === ''" src="../../../assets/images/default_profile.jpg" alt="Default" width="150" height="150">
+            <img *ngIf="user?.picture !== ''" src="{{user?.picture}}" alt="Default" width="150" height="150">
+            <form class="picture-form" enctype="multipart/form-data" *ngIf="isCreator">
+                <input type="file" (change)="onFileSelected($event)">
+                <div class="help-block with-errors">.jpeg, .jpg, .png, .gif</div>
+            </form>
+            <hr>
+            <p>Phone: {{user?.phone}}</p>
+            <p>Address: {{user?.address}}</p>
+            <p>Email: {{user?.email}}</p>
+            <p *ngIf="user?.rating.length === 0">Rating: 0</p>
+            <p *ngIf="user?.rating.length !== 0">Rating: {{ avgRating }}</p>
+            <div *ngIf="!isCreator && !isRated">
+                <rating [max]="5" [(ngModel)]="y" [customTemplate]="tt"></rating>
+                <ng-template #tt let-i="index" let-v="value">
+                  <button (click)="onRate(v)" class="btn btn-{{i < v ? 'warning' : 'default'}}">
+                    {{i < v ? '&#9733;' : '&#9734;'}}
+                  </button>
+                </ng-template>
+            </div>
+            <div class="row justify-content-around" *ngIf="isCreator">
+                <a class="btn btn-primary btn-trade text-white" [routerLink]="'/profile/'+user?._id +'/edit'">Edit</a>
+                <a class="btn btn-primary btn-trade text-white" [routerLink]="'/products-list-my'">My Products</a>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
+<div class="row justify-content-center spinner-container-profile" [hidden]="!isLoading">
+    <app-loading-spinner></app-loading-spinner>
+</div>

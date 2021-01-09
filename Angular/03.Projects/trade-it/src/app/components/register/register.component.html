@@ -1,0 +1,52 @@
+<h1 class="text-center text-margin">Register</h1>
+<div class="form-container-register">
+    <form data-toggle="validator" role="form" #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
+        <fieldset>
+          <div class="form-row">
+            <div class="col">
+              <label for="username">Username</label>
+              <input type="text" name="username" #username="ngModel" ngModel minlength="3" maxlength="25" class="form-control" id="username" aria-describedby="emailHelp" placeholder="Username" required>
+              <div class="help-block with-errors">Between 3 and 25 characters long.</div>
+              <div class="help-block text-red" *ngIf="!username.valid && username.touched">Please enter valid username.</div>
+            </div>
+            <div class="col">
+              <label for="Email">Email</label>
+              <input type="email" name="email" #email="ngModel" ngModel minlength="3" maxlength="50" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Email" required email>
+              <div class="help-block with-errors">Enter a valid email.</div>
+              <div class="help-block text-red" *ngIf="!email.valid && email.touched">Please enter valid email.</div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col">
+                <label for="password">Password</label>
+                <input id="password" type="password" #password="ngModel" ngModel minlength="6" name="password" class="form-control" placeholder="Password" required>
+                <div class="help-block with-errors">Minimum 6 characters long.</div>
+                <div class="help-block text-red" *ngIf="!password.valid && password.touched">Please enter valid password.</div>
+            </div>
+            <div class="col">
+                <label for="repeatPassword">Repeat Password</label>
+                <input type="password" #repeatPassword="ngModel" ngModel name="repeatPassword" data-match="#password" class="form-control" id="repeatPassword" placeholder="Repeat Password" required>
+                <div class="help-block with-errors">Must match password.</div>
+                <div class="help-block text-red" *ngIf="!repeatPassword.valid && repeatPassword.touched">Please enter valid password.</div>
+            </div>
+          </div>
+          <div class="form-row">
+           <div class="col">
+            <label for="address">Address</label>
+            <input type="text" name="address" #address="ngModel" ngModel id="address" minlength="3" maxlength="50" class="form-control" placeholder="Address" required>
+            <div class="help-block with-errors">Between 3 and 50 characters long.</div>
+            <div class="help-block text-red" *ngIf="(!address.valid && address.touched)">Please enter valid address.</div>
+           </div>
+           <div class="col">
+            <label for="phone">Phone Number</label>
+            <input type="tel" name="phone" #phone="ngModel" ngModel id="phone" class="form-control" placeholder="Phone Number" pattern="[0-9]{5,10}" required>
+            <div class="help-block with-errors">Must contain between 5 and 10 digits.</div>
+            <div class="help-block text-red" *ngIf="(!phone.valid && phone.touched)">Please enter valid amount.</div>
+           </div>
+          </div>
+          <div class="button-container">
+              <button type="submit" class="btn btn-trade" [disabled]="!registerForm.valid">Register</button>
+          </div>
+        </fieldset>
+    </form>
+</div>

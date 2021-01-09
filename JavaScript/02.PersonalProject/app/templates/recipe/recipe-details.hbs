@@ -1,0 +1,64 @@
+{{> header}}
+    <div class="container">
+        <h1 class="text-white text-center text-margin">{{name}}</h1>
+        <div class="row">
+            <div class="col-md-4">
+            {{#if picture}}
+                <img src="{{picture}}" width="400" height="300">
+            {{else}}
+                <img src="images/default-food-image.jpg" width="400" height="300">
+            {{/if}}
+            {{#if isCreator}}
+            <form enctype="multipart/form-data" role="form" action="#/recipe-picture-edit/:{{_id}}" method="POST">
+                <div class="form-group">
+                    <label for="exampleInputFile" class="text-white">Menu Picture</label>
+                    <input id="recipePicture" type="file" name="recipePicture" class="form-control-file" id="exampleInputFile" required>
+                    <div class="help-block with-errors text-white">Upload photo (.jpg .png .jpeg .gif)</div>
+                </div>
+                <div class="button-container">
+                    <button type="submit" class="btn btn-primary">Upload</button>
+                </div>
+            </form>
+            {{/if}}
+            </div>
+            <div class="col-md-7 offset-md-1">
+                <p class="text-white">{{text}}</p>
+            </div>
+        </div>
+
+        {{#if isCreator}}
+            <div class="row">
+                <div class="col-md-4 offset-md-4">
+                    <div class="d-flex justify-content-around">
+                        <a class="btn btn-primary" href="#/recipe-edit/:{{_id}}">Edit</a>
+                        <form action="#/recipe-delete/:{{_id}}" method="POST">
+                            <input class="btn btn-primary" type="submit" value="Delete">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        {{/if}}
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="text-white text-center text-margin">Comment</h3>
+                <form action="#/recipe-comment/:{{_id}}" method="POST">
+                    <div class="form-group">
+                        <label for="exampleTextarea" class="text-white">Comment</label>
+                        <textarea class="form-control" maxlength="3000" rows="3" name="commentRecipe" required></textarea>
+                    </div>
+                    <div class="button-container text-white">
+                        <input type="submit" value="comment">
+                    </div>
+                </form>  
+            </div>
+        </div>
+        <div class="separator">
+        </div>
+        {{#each comments}}
+            {{> comment}}
+        {{/each}} 
+    </div>
+        <div class="separator">
+        </div>
+{{> footer}}

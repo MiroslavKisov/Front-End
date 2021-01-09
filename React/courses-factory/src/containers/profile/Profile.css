@@ -1,0 +1,6 @@
+.profile-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 360px;
+}

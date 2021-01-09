@@ -1,0 +1,83 @@
+.form-container-register {
+  width:700px; 
+  margin-right:auto;
+  margin-left:auto;
+}
+
+.form-container-edit {
+  width:550px; 
+  margin-right:auto;
+  margin-left:auto;
+}
+
+.form-container {
+  width:400px; 
+  margin-right:auto;
+  margin-left:auto;
+}
+
+.border-block {
+  border: 1px solid #36b5f5;
+  border-radius: 3px;
+  margin: 5px 5px 5px 5px;
+  height: 550px; 
+}
+
+.form-row {
+  margin-top:25px;
+}
+
+.button-container {
+  text-align: center;
+}
+
+.text-margin {
+  margin-top:50px;
+}
+
+.text-white {
+  color: white;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-red {
+  color: red;
+}
+
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+
+textarea.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+
+.spinner-container {
+  margin-top: 190px;
+}
+
+.spinner-container-profile {
+  margin-top: 250px;
+}
+
+.btn-trade {
+  background-color: #36b5f5;
+  color: white;
+}
+
+.picture-form {
+  margin-top: 3px;
+}
+
+.spacer {
+  margin-top:80px;
+}
+
+.textarea-size {
+  width: 400px;
+  max-width: 400px;
+  height: 80px;
+}

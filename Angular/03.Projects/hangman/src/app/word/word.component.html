@@ -1,0 +1,21 @@
+<div class="col-xs-12">
+    <div *ngIf="status==='inProgress'">
+        <p>You have {{lives}} lives left.</p>
+        <div class="d-inline-flex p-2 bd-highlight">
+            <div class="d-flex flex-row bd-highlight mb-3">
+                <div *ngFor="let element of word.content" class="p-2 bd-highlight letter-container">
+                    <p *ngIf="element.isGuessed">{{ element.letter }}</p>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <p>{{ word.hint }}</p>
+    </div>
+    <div *ngIf="status==='win'">
+        <p>Correct!</p>
+        <p>The correct answer is: {{ word.wholeWord }}</p>
+    </div>
+    <div *ngIf="status==='lose'">
+        <p>You lose!</p>
+    </div>
+</div>

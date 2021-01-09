@@ -1,0 +1,22 @@
+{{> header}}
+<h1 class="text-white text-center text-margin">Create Recipe</h1>
+<div class="form-container">
+    <form id="recipeForm" enctype="multipart/form-data" method="POST" action={{recipeRoute}}>
+      <fieldset>
+        <div class="form-group">
+            <label class="text-white" for="exampleInputEmail1">Recipe Name</label>
+            <input type="text" minlength="3" maxlength="25" name="recipeName" class="form-control" aria-describedby="emailHelp" placeholder="Recipe name" required>
+            <div class="help-block with-errors text-white">Between 3 and 25 characters long</div>
+        </div>
+        <div class="form-group">
+          <label for="exampleTextarea" class="text-white">Recipe Instructions</label>
+          <textarea maxlength="3000" class="form-control" id="exampleTextarea" rows="3" name="recipeText" placeholder="Recipe..." required></textarea>
+        </div>
+        <div id="info"></div>
+        <div class="button-container">
+            <button type="submit" class="btn btn-primary">Create</button>
+        </div>
+      </fieldset>
+    </form>
+</div>
+{{> footer}}

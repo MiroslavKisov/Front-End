@@ -1,0 +1,36 @@
+<h3 class="text-center text-margin">Edit</h3>
+<div class="form-container-edit">
+    <form data-toggle="validator" role="form" #editForm="ngForm" (ngSubmit)="onEdit(editForm)">
+        <fieldset>
+            <div class="form-row">
+                <div class="col">
+                    <label for="username">Username</label>
+                    <input [(ngModel)]="user && user.username" type="text" name="username" #username="ngModel" ngModel minlength="3" maxlength="25" class="form-control" id="username" aria-describedby="emailHelp" placeholder="Username" required>
+                    <div class="help-block with-errors">Between 3 and 25 characters long.</div>
+                    <div class="help-block text-red" *ngIf="!username.valid && username.touched">Please enter valid username.</div>
+                </div>
+                <div class="col">
+                    <label for="Email">Email</label>
+                    <input [(ngModel)]="user && user.email" type="email" name="email" #email="ngModel" ngModel minlength="3" maxlength="50" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Email" required email>
+                    <div class="help-block with-errors">Enter a valid email.</div>
+                    <div class="help-block text-red" *ngIf="!email.valid && email.touched">Please enter valid email.</div>
+                </div>
+            </div>
+          <div class="form-group">
+            <label for="address">Address</label>
+            <input [(ngModel)]="user && user.address" type="text" name="address" #address="ngModel" ngModel id="address" minlength="3" maxlength="50" class="form-control" placeholder="Address" required>
+            <div class="help-block with-errors">Between 3 and 50 characters long.</div>
+            <div class="help-block text-red" *ngIf="(!address.valid && address.touched)">Please enter valid address.</div>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input [(ngModel)]="user && user.phone" type="tel" name="phone" #phone="ngModel" ngModel id="phone" class="form-control" placeholder="Phone Number" pattern="[0-9]{5,10}" required>
+            <div class="help-block with-errors">Must contain between 5 and 10 digits.</div>
+            <div class="help-block text-red" *ngIf="(!phone.valid && phone.touched)">Please enter valid amount.</div>
+          </div>
+          <div class="button-container spacer">
+              <button type="submit" class="btn btn-trade" [disabled]="!editForm.valid">Save</button>
+          </div>
+        </fieldset>
+    </form>
+</div>

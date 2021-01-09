@@ -1,0 +1,19 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+   {{ title }}!
+  </h1>
+</div>
+
+<form>
+  <input type="text" placeholder="add new" [(ngModel)]="val" name="val">
+  <button type="button" (click)="submit()">Submit</button>
+</form>
+
+<ul>
+  <li *ngFor="let val of values; let i = index;">
+    {{val}}<button (click)="edit(i)">Edit</button><button (click)="del(i)">Delete</button>
+  </li>
+</ul>
+
+<router-outlet></router-outlet>

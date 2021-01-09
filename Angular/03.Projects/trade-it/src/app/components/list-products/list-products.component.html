@@ -1,0 +1,47 @@
+<h1 class="text-margin text-center">Products</h1>
+<div class="container-fluid">
+<hr>
+  <div class="row justify-content-center spinner-container" [hidden]="!isLoading">
+    <app-loading-spinner></app-loading-spinner>
+  </div>
+  <div>
+    <div class="row" [hidden]="isLoading">
+      <div class="col-md-5">
+        <table class="table table-hover" matSort (matSortChange)="sortData($event, sortedProducts)">
+          <thead>
+            <tr>
+              <th scope="col" mat-sort-header="name">Name</th>
+              <th scope="col" mat-sort-header="price">Price</th>
+              <th scope="col">See Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let product of sortedProducts | slice:start:end">
+              <td>{{ product.name }}</td>
+              <td>{{ product.price }}</td>
+              <td>
+                <a *ngIf="!isCreator && !isSearch" class="btn btn-primary btn-trade text-white" [routerLink]="'/products-list/'+product._id">Details</a>
+                <a *ngIf="isCreator && !isSearch" class="btn btn-primary btn-trade text-white" [routerLink]="'/products-list-my/'+product._id">Details</a>
+                <a *ngIf="isSearch" class="btn btn-primary btn-trade text-white" [routerLink]="['/products-list-search', searchValue, product._id]">Details</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+      <div class="col-md-6 offset-md-1">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <nav aria-label="Page navigation example">
+      <ul class="pagination pages">
+        <li class="page-item"><button class="page-link" (click)="prevPageGroup()" [disabled]="isFirst">&laquo;</button></li>
+        <li class="page-item" *ngFor="let i of pages | slice:navStart:navEnd"><button class="page-link" (click)="selectPage(i)">{{i+1}}</button></li>
+        <li class="page-item"><button class="page-link" (click)="nextPageGroup()" [disabled]="isLast">&raquo;</button></li>
+      </ul>
+    </nav>
+  </div>
+</div>
+

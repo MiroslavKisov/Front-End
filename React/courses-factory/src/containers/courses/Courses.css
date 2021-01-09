@@ -1,0 +1,7 @@
+.course-item-holder {
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-left: 5px;
+  width: 1400px;
+}

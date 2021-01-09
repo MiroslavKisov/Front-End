@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./services/game-service.js"></script>
+    <script src="./services/event-service.js"></script>
+    <script src="./services/render-service.js"></script>
+    <script src="./services/data-service.js"></script>
+    <script src="./engine.js"></script>
+    <script src="./main.js"></script>
+    <link rel="stylesheet" type="text/css" href="./styles/style.css">
+    <title>Hangman</title>
+</head>
+<body onload="main()">
+    <main id="main">
+        <div id="container">
+            <h1>H A N G M A N</h2>
+            <div id="message" class="game-info">
+                    
+            </div>
+        <div id="word" class="word-container">
+            
+        </div>
+        <div id="container" class="control-container">
+            <div id="alphabet" class="alphabet-container box">
+                <div>A</div>
+                <div>B</div>
+                <div>C</div>
+                <div>D</div>
+                <div>E</div>
+                <div>F</div>
+                <div>G</div>
+                <div>H</div>
+                <div>I</div>
+                <div>J</div>
+                <div>K</div>
+                <div>L</div>
+                <div>M</div>
+                <div>N</div>
+                <div>O</div>
+                <div>P</div>
+                <div>Q</div>
+                <div>R</div>
+                <div>S</div>
+                <div>T</div>
+                <div>U</div>
+                <div>V</div>
+                <div>W</div>
+                <div>X</div>
+                <div>Y</div>
+                <div>Z</div>
+            </div>
+            <div class="canvas-box">
+                <canvas id="canvas" class="canvas">
+
+                </canvas>
+            </div>
+        </div>
+        <div class="button-container">
+            <div class="button-holder">
+                <button id="start" class="button">START</button>
+            </div>
+            <div class="button-holder">
+                <select id="category" class="category">
+                    <option value="" selected="selected" disabled="disabled">--CATEGORY--</option>
+                    <option value="cities">CITIES</option>
+                    <option value="cars">CARS</option>
+                    <option value="animals">ANIMALS</option>
+                    <option value="states">STATES</option>
+                </select>
+            </div>
+        </div>
+        </div>
+    </main>
+</body>
+</html>

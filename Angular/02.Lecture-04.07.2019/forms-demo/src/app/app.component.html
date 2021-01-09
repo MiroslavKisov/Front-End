@@ -1,0 +1,27 @@
+<form #myForm="ngForm" novalidate (ngSubmit)="submit(myForm)">
+  <div>
+    <label for="name">Name</label>
+    <input type="text" name="name" id="name" [(ngModel)]="name" required>
+  </div>
+  <div [hidden]="myForm.form.controls?.name?.valid">
+    Invalid Username
+  </div>
+  <div>
+    <label for="email">Email</label>
+    <input type="email" name="email" id="email" [(ngModel)]="email" required pattern=".+@.+">
+  </div>
+  <div [hidden]="myForm.form.controls?.email?.valid">
+      Invalid Email
+  </div>
+  <div>
+    <label for="phone">Phone</label>
+    <input type="text" name="phone" id="phone" [(ngModel)]="phone" required pattern="555-[0-9]{8}">
+  </div>
+  <div [hidden]="myForm.form.controls?.phone?.valid">
+      Invalid Phone
+  </div>
+  <div>
+    <button [disabled]="myForm.invalid" type="submit">Submit</button>
+  </div>
+</form>
+

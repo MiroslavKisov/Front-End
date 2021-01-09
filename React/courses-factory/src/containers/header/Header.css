@@ -1,0 +1,14 @@
+.navigation {
+  flex-direction: row;
+  display: flex;
+  justify-content: space-between;
+}
+
+ul {
+  list-style: none;
+  display: inline-flex;
+}
+
+li {
+  margin: 10px;
+}

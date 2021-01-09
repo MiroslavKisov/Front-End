@@ -1,0 +1,25 @@
+{{> header}}
+<h1 class="text-white text-center text-margin">Edit Profile</h1>
+  <div class="form-container">
+      <form data-toggle="validator" role="form" action={{editRoute}} method="POST">
+        <fieldset>
+          <div class="form-group">
+            <label class="text-white" for="exampleInputEmail1">Username</label>
+            <input value={{username}} type="text" name="username" minlength="3" maxlength="25" class="form-control" id="username" aria-describedby="emailHelp" placeholder="Username" data-error="Username must be between 3 and 25 charecters long!" required>
+            <div class="help-block with-errors text-white">Edit your username</div>
+          </div>
+          <div class="form-group">
+            <label for="exampleTextarea" class="text-white">About You</label>
+            <textarea class="form-control" maxlength="3000" rows="3" name="aboutYou" placeholder="About you...">{{aboutYou}}</textarea>
+            <div class="help-block with-errors text-white">Edit about you info.</div>
+          </div>
+            <div class="form-group hidden-field">
+                <input type="text" value={{picture}} name="profilePicture">
+            </div>
+          <div class="button-container">
+              <button type="submit" class="btn btn-primary">Edit</button>
+          </div>
+        </fieldset>
+      </form>
+  </div>
+{{> footer}}

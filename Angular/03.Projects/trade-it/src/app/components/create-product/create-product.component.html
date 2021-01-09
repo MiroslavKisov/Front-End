@@ -1,0 +1,28 @@
+<h1 class="text-center text-margin">Create Product</h1>
+<div class="form-container">
+    <form data-toggle="validator" role="form" #createProductForm="ngForm" (ngSubmit)="onCreate(createProductForm)">
+        <fieldset>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" name="name" #name="ngModel" ngModel minlength="3" maxlength="25" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Name" required>
+            <div class="help-block with-errors">Between 3 and 25 characters long</div>
+            <div class="help-block text-red" *ngIf="!name.valid && name.touched">Please enter valid name</div>
+          </div>
+          <div class="form-group">
+            <label for="price">Money</label>
+            <input type="number" name="price" #price="ngModel" ngModel id="price" class="form-control" placeholder="Price" value="0" min="0" max="100000" required>
+            <div class="help-block with-errors">Between 0 and 100000</div>
+            <div class="help-block text-red" *ngIf="(!price.valid && price.touched) || (price.value < 0 || price.value > 100000)">Please enter valid amount.</div>
+          </div>
+          <div class="form-group">
+            <label for="description">Description</label>
+            <textarea class="textarea-size" name="description" id="description" ngModel #description="ngModel" cols="54" rows="4" placeholder="Description" maxlength="500" required></textarea>
+            <div class="help-block with-errors">Maximum 500 symbols.</div>
+            <div class="help-block text-red" *ngIf="!description.valid && description.touched || description.length > 3000">Please enter valid description.</div>
+          </div>
+          <div class="button-container">
+              <button type="submit" class="btn btn-trade" [disabled]="!createProductForm.valid">Create</button>
+          </div>
+        </fieldset>
+    </form>
+</div>

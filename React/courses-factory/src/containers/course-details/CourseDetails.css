@@ -1,0 +1,6 @@
+.course-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 330px;
+}
