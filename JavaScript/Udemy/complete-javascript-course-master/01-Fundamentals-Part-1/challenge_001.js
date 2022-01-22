@@ -1,7 +1,7 @@
-let markHeight = 1.69;
-let johnHeight = 1.95;
-let markMass = 78;
-let johnMass = 92;
+const markHeight = 1.69;
+const johnHeight = 1.95;
+const markMass = 78;
+const johnMass = 92;
 
 let markBMI = markMass / markHeight ** 2;
 let johnBMI = johnMass / johnHeight ** 2;
