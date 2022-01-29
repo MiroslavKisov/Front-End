@@ -13,7 +13,7 @@ function calcTip(bill) {
 function calcTips(bills, tips, total) {
   for (let i = 0; i < bills.length; i++) {
     tips.push(calcTip(bills[i]));
-    total[i] = tips[i] + bills[i];
+    total.push(tips[i] + bills[i]);
   }
 }
 
